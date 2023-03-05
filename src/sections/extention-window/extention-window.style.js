@@ -1,9 +1,12 @@
 import styled from 'styled-components';
 
 export const BlackBoxWrapper = styled.div`
+    display: ${({ open }) => open ? 'initial' : 'none'};
+
     min-height: 100vh;
     min-width: 100vw;
     background-color: rgba(23, 23, 23, 0.81);
+    z-index: 200;
     
     position: absolute;
     top: 0;

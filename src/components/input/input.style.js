@@ -1,5 +1,20 @@
 import styled from 'styled-components';
 
+export const InputWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+`;
+
+export const InputLabel = styled.label`
+    min-height: 25px;
+    font-family: 'Bebas Neue';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+`;
+
 export const InputStyle = styled.input`
     width: 421px;
     height: 42px;

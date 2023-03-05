@@ -1,14 +1,11 @@
 import styled from 'styled-components';
 
-import planetImage from '../../assets/planet.png';
-
 export const MainStyle = styled.section`
     position: relative;
 
-    width: 1440px;
+    width: 100%;
     min-height: 596px;
     margin-top: 104px;
-    background: var(--main-background);
 
     font-family: 'Bebas Neue';
     font-weight: 700;
@@ -25,7 +22,7 @@ export const TextCallFirstLine = styled.p`
 
     position: absolute;
     // В зависимости от типа - меняется родительский тег. 
-    // Отсюда необходимо меня позицию относительно текущего родителя
+    // Здесь необходимо меня позицию относительно текущего родителя
     left: ${({ type }) => type !== 'orange' ? '64px' : '-663px'};
     top: ${({ type }) => type !== 'orange' ? '156px' : '51px'};
 `;
@@ -48,88 +45,6 @@ export const TextCallSecondLine = styled.p`
 export const MarkText = styled.span`
     color: var(--main-background);
     text-shadow: 0 0 5px var(--white);
-`;
-
-export const PlanetImage = styled.div`
-    width: 320px;
-    height: 322px;
-
-    // Сохраняет форму картинки и создает 3д эффект
-    mask-image: url(${planetImage});
-    mask-size: contain;
-    mask-repeat: no-repeat;
-    mask-position: center;
-
-    background: url(${planetImage});
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    z-index: 18;
-    
-    position: absolute;
-    left: 727px;
-    top: 105px;
-`;
-
-// Все элипсы привязаны к основному Мэйн элипсуж, а сам Мейн к текущей секции //
-export const EllipseOneMain = styled.div`
-    width: 532px;
-    height: 532px;
-    background-color: rgba(33, 33, 36, 1);
-    border-radius: 50%;
-
-    position: absolute;
-    left: 621px;
-    top: 0px;
-`;
-
-export const EllipseTwo = styled.div`
-    width: 526px;
-    height: 526px;
-    border-radius: 50%;
-    background-color: rgba(23, 23, 25, 1);
-    filter: blur(11px);
-    z-index: 1;
-
-    position: absolute;
-    left: 3px;
-    top: 3px;
-`;
-
-export const EllipseThree = styled.div`
-    width: 446px;
-    height: 446px;
-    background-color: rgba(30, 30, 32, 1);
-    border-radius: 50%;
-    z-index: 3;
-    
-    position: absolute;
-    left: 43px;
-    top: 43px;
-`;
-
-export const EllipseFour = styled.div`
-    width: 384px;
-    height: 384px;
-    border: 1px solid rgba(50, 50, 50, 1);
-    border-radius: 50%;
-    z-index: 3;
-
-    position: absolute;
-    left: 74px;
-    top: 74px;
-`;
-
-export const EllipseFive = styled.div`
-    width: 370px;
-    height: 370px;
-    border: 1px solid rgba(50, 50, 50, 1);
-    border-radius: 50%;
-    z-index: 3;
-    
-    position: absolute;
-    left: 82px;
-    top: 81px;
 `;
 
 export const TextWrapper = styled.div`

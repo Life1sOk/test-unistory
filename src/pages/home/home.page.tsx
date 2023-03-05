@@ -1,13 +1,15 @@
 import { HomePageStyle } from "./home.style";
 
-import Header from "../../blocks/header/header.block";
-import Main from "../../blocks/main/main.block";
+import Main from "../../sections/main/main.section";
+import Footer from "../../sections/footer/footer.section";
+import ExtentionWindow from "../../sections/extention-window/extention-window.section";
 
 const HomePage = () => {
     return (
         <HomePageStyle>
-            <Header />
+            <ExtentionWindow />
             <Main />
+            <Footer />
         </HomePageStyle>
     )
 };

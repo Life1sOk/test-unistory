@@ -1,41 +1,43 @@
 import styled from 'styled-components';
 
-export const EllipseAnimationStyle = styled.div`
+export const EllipseAnimationWrapper = styled.div`
     width: 486px;
     height: 486px;
-    border-radius: 50%;
-    background: conic-gradient(
-        var(--orange) 50%,
-        rgba(255,255,255, 0) 50%
-    );
-    transition: 2s;
     z-index: 2;
-    
+
     position: absolute;
     left: 23px;
     top: 23px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-`;
-
-export const HidenCircle = styled.div`
-    width: 483px;
-    height: 483px;
-    border-radius: 50%;
-    background-color: var(--main-background);
-    z-index: 3;
 `;
 
 export const Point = styled.div`
     width: 6px;
-    height: 6px;
+    // Привязка к состоянию чтобы анимация не началась раньше
+    height: ${({ state }) => state === 0 ? '0' : '6px'};
     background-color: var(--orange);
     border-radius: 50%;
     z-index: 4;
-
+    
     position: absolute;
+
+    // Искусственная задержка под прогресс анимацию -- Нужно будет найти лучший способ...
+    // Привязка к состоянию чтобы анимация не началась раньше
+    animation-name: ${({ state }) => state === 0 ? 'none' : 'show'};
+    animation-duration: ${({ time }) => time ? `${time + time / 50}s` : '0'};
+
+    @keyframes show {
+        0% {
+            height: 0;
+        }
+
+        99% {
+            height: 0;
+        }
+
+        100% {
+            height: 6px;
+        }
+    }
 `;
 
 export const PointBox = styled.div`
@@ -45,7 +47,7 @@ export const PointBox = styled.div`
     background-color: var(--white);
     border-radius: 15px;
     color: var(--main-background);
-    z-index: 3;
+    z-index: 4;
     
     position: absolute;
     left: 50%;

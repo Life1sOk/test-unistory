@@ -1,12 +1,16 @@
-import { InputStyle } from './input.style';
+import { InputWrapper, InputStyle, InputLabel } from './input.style';
 
 interface IInput {
     placeholder: string,
+    label?: string,
 };
 
-const Input = ({ placeholder }: IInput) => {
+const Input = ({ placeholder, label }: IInput) => {
     return (
-        <InputStyle placeholder={placeholder} />
+        <InputWrapper>
+            <InputLabel htmlFor={label}>{label}</InputLabel>
+            <InputStyle placeholder={placeholder} id={label} />
+        </InputWrapper>
     )
 };
 
