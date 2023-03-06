@@ -1,14 +1,17 @@
-import { useEffect, useState } from 'react';
-
-import { ExtentinWindowStyle, ExtentionDescription, BlackBoxWrapper } from './extention-window.style';
+// Redux
+import { useAppSelector, useAppDispatch } from '../../app-redux/hooks';
+import { extentionChangeHandler } from '../../app-redux/slices/extention.slice';
 
 import BlockTitle from '../../components/block-title/block-title.component';
 import Button from '../../components/button/button.component';
 
-const ExtentionWindow = () => {
-    const [open, setOpen] = useState(true);
+import { ExtentinWindowStyle, ExtentionDescription, BlackBoxWrapper } from './extention-window.style';
 
-    const skipHandler = () => setOpen(false);
+const ExtentionWindow = () => {
+    const dispatch = useAppDispatch();
+    const open = useAppSelector((state) => state.extention.extentionReady);
+
+    const skipHandler = () => dispatch(extentionChangeHandler(false));
 
     return (
         <BlackBoxWrapper open={open}>
@@ -16,7 +19,10 @@ const ExtentionWindow = () => {
                 <BlockTitle title='METAMASK EXTENTION' />
                 <ExtentionDescription>
                     To work with our application, you have to install the
-                    <span className='marked'> Metamask browser extention</span>
+                    <a className='marked' href='https://metamask.io/'
+                        target='_blank' rel="noopener noreferrer"
+                    > Metamask browser extention
+                    </a>
                 </ExtentionDescription>
                 <Button label='SKIP THIS STEP' onClickHandler={skipHandler} />
             </ExtentinWindowStyle>

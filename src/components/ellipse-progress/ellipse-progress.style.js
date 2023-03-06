@@ -54,7 +54,6 @@ export const PointBox = styled.div`
     top: -14px;
     transform: translateX(calc(-50% - 21.5px)); 
 
-    font-family: 'Bebas Neue';
     font-weight: 700;
     font-size: 14px;
 

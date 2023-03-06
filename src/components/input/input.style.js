@@ -9,8 +9,6 @@ export const InputWrapper = styled.div`
 
 export const InputLabel = styled.label`
     min-height: 25px;
-    font-family: 'Bebas Neue';
-    font-style: normal;
     font-weight: 700;
     font-size: 24px;
 `;
@@ -23,7 +21,7 @@ export const InputStyle = styled.input`
     transition: border .3s;
 
     color: var(--white);
-    background-color: inherit;
+    background-color: var(--main-background);
     
     border: 1px solid var(--white);
     border-radius: 30px;
@@ -35,9 +33,5 @@ export const InputStyle = styled.input`
 
     &:focus {
         border: 1px solid var(--orange);
-    }
-
-    &:placeholder-shown {
-        color: rgba(255,255,255, .5);
     }
 `;

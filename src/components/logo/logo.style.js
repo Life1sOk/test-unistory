@@ -15,9 +15,6 @@ export const LogoStyle = styled.div`
     background: rgba(90, 90, 90, 1);
     border: 1px dashed rgba(199, 199, 199, 1);
 
-
-    font-family: 'Bebas Neue';
     font-weight: 400;
     font-size: 18px;
-    line-height: 120%;
 `;

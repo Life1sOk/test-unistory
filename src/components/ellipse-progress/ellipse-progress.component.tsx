@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+
+import { useAppSelector } from "../../app-redux/hooks";
 
 import { EllipseAnimationWrapper, Point, PointBox } from './ellipse-progress.style';
 
@@ -13,14 +15,17 @@ interface IProgress {
 const EllipseProgress = ({ size, strokeWidth, percentage, color, pointBox }: IProgress) => {
     const [progress, setProgress] = useState(0);
 
+    const extentionIsOpen = useAppSelector((state) => state.extention.extentionReady);
+
     const viewBox = `0 0 ${size} ${size}`;
     const radius = (size - strokeWidth) / 2;
     const circumference = radius * Math.PI * 2;
     const dash = (progress * circumference) / 100;
 
     useEffect(() => {
-        setProgress(percentage);
-    }, [percentage]);
+        // Привязка в extention-window чтобы анимация не начаналась если окно открыто
+        if (!extentionIsOpen) setProgress(percentage);
+    }, [percentage, extentionIsOpen]);
 
     return (
         <EllipseAnimationWrapper>

@@ -31,7 +31,8 @@ body {
 
 body {
   max-width: 1440px;
-  /* max-height: 797px; */
+  font-family: 'Bebas Neue';
+  font-style: normal;
 }
 
 a:link {

@@ -21,7 +21,9 @@ export const ButtonStyle = styled.button`
     opacity: ${({ unactive }) => !unactive ? '1' : '.5'};
 
     &:hover {
-        cursor: pointer;
-        background-color: var(--orange-dark);
+
+        cursor: ${({ unactive }) => !unactive ? 'pointer' : 'initial'};
+        background-color: ${({ unactive }) => !unactive ?
+        'var(--orange-dark)' : 'var(--orange)'};
     }
 `;

@@ -6,7 +6,6 @@ export const BlockTitleSlyle = styled.h3`
     color: var(--orange);
     flex-shrink: 0;
 
-    font-family: 'Bebas Neue';
     font-weight: 700;
     font-size: 36px;
 `;

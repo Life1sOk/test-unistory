@@ -1,11 +1,9 @@
 import { ProfilePageStyle } from './profile.style';
 
-import Main from '../../sections/main/main.section';
-
 const ProfilePage = () => {
     return (
         <ProfilePageStyle>
-            <Main />
+            <h1>Профайл страница</h1>
         </ProfilePageStyle>
     )
 };

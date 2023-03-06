@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const SignUpForm = styled.form`
+export const UserStyle = styled.div`
     display: flex;
     flex-direction: column;
     gap: 18px;
@@ -8,5 +8,5 @@ export const SignUpForm = styled.form`
 
 export const ButtonWrapper = styled.div`
     width: fit-content;
-    margin-top: 15px;
+    margin-top: 10px;
 `;

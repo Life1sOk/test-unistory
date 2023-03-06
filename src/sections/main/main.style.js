@@ -7,7 +7,6 @@ export const MainStyle = styled.section`
     min-height: 596px;
     margin-top: 104px;
 
-    font-family: 'Bebas Neue';
     font-weight: 700;
     font-size: 120px;
 `;

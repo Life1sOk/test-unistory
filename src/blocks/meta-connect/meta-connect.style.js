@@ -10,8 +10,6 @@ export const AccountLine = styled.div`
     overflow: hidden;
     text-overflow: ellipsis;
 
-    font-family: 'Bebas Neue';
-    font-style: normal;
     font-weight: 700;
     font-size: 18px;
 `;
