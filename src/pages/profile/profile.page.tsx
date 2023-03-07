@@ -1,9 +1,11 @@
+import PersonalMain from '../../sections/personal-main/personal-main.section';
+
 import { ProfilePageStyle } from './profile.style';
 
 const ProfilePage = () => {
     return (
         <ProfilePageStyle>
-            <h1>Профайл страница</h1>
+            <PersonalMain />
         </ProfilePageStyle>
     )
 };

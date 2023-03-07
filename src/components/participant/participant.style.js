@@ -1,11 +1,16 @@
 import styled from 'styled-components';
 
-export const ParticipantStyle = styled.div`
+export const ParticipantsWrapper = styled.div`
     position: relative;
 
+    width: 100%;
+    height: fit-content;
+`;
+
+export const ParticipantStyle = styled.div`
     height: 50px;
     margin-right: 18.25px;
-    color: ${({ current }) => current ? 'var(--orange)' : 'var(--white)'};
+    color: var(--white);
     border-bottom: 1px solid var(--white);
 
     font-family: 'Avenir Next Cyr';
@@ -17,33 +22,41 @@ export const ParticipantStyle = styled.div`
     align-items: center;
 `;
 
-export const NameP = styled.span`
+export const ParticipantsMainStyle = styled(ParticipantStyle)`
+    color: var(--orange);
+`;
+
+// ---------------------------- //
+
+const BaseP = styled.span`
+    text-align: start;
+    overflow: hidden;
+    text-overflow: ellipsis;
+`;
+
+export const NameP = styled(BaseP)`
     width: 110px;
-    text-align: start;
-    overflow: hidden;
-    text-overflow: ellipsis;
 `;
 
-export const EmailP = styled.span`
+export const EmailP = styled(BaseP)`
     width: 173px;
-    text-align: start;
-    overflow: hidden;
-    text-overflow: ellipsis;
 `;
 
-export const WalletP = styled.span`
+export const WalletP = styled(BaseP)`
     width: 195px;
-    text-align: start;
-    overflow: hidden;
-    text-overflow: ellipsis;
     margin-right: 29px;
 `;
 
+// ------------------------------ //
+
 export const Сross = styled.span`
     position: absolute;
-    top: 45%;
+    top: 50%;
     right: 0;
 
+    padding: 10px;
+    color: var(--orange);
+    z-index: 2;
     transform: translate(-50%, -50%);
 
     &:hover {

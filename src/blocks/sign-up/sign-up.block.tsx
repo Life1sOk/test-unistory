@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 
 import { useAppDispatch } from '../../app-redux/hooks';
-import { addCurrentNameAndEmail, completedUser } from '../../app-redux/slices/user.slice';
+import { addCurrentNameAndEmail } from '../../app-redux/slices/user.slice';
 
 import Input from '../../components/input/input.component';
 import Button from '../../components/button/button.component';
@@ -27,9 +27,6 @@ const SignUp = () => {
         // Clear input values
         nameRef.current.value = '';
         emailRef.current.value = '';
-
-        // Check if all fields completed;
-        dispatch(completedUser());
     };
 
     return (

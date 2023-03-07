@@ -9,45 +9,57 @@ interface IPlanet {
     left?: number,
     bottom?: number,
     right?: number,
-    children: JSX.Element | JSX.Element[];
+    children?: JSX.Element | JSX.Element[];
     pointBox?: boolean,
+    ellipse?: boolean,
 };
 
-const Planet = ({ children, pointBox, top, left, right, bottom }: IPlanet) => {
+const Planet = ({ children, pointBox, top, left, right, bottom, ellipse }: IPlanet) => {
     const planetRef = useRef<HTMLDivElement>();
+
+    const pointerEnterHandler = () => {
+        const planet = planetRef.current as any;
+        // As soon as we start the mouse, we create an animation
+        planet.style.transition = `transform 30s linear`;
+    };
 
     const mouseMoveHandler = (event: MouseEvent) => {
         const planet = planetRef.current as any;
-        // Координаты планеты по осям Х и У относительно клиента
+        // Planet coordinates along the X and Y axes relative to the client
         let planetX = (planet.getBoundingClientRect()?.left) + (planet.clientWidth / 2);
         let planetY = (planet.getBoundingClientRect()?.top) + (planet.clientHeight / 2);
-        // Координат текущего курсора Х и У относительно клиента
+        // X and Y coordinates of the current cursor relative to the client
         let cursoreX = event.clientX;
         let cursoreY = event.clientY;
-        //  Находим разницу между координатами и множим на процент 10 (процент на который сдвиниться планета)
-        let transX = (planetX - cursoreX) * 5 / 100 * -1;
-        let transY = (planetY - cursoreY) * 5 / 100 * -1;
-        // Стайлим координаты
+        //  Finding the difference between coordinates
+        let transX = (planetX - cursoreX) * -1;
+        let transY = (planetY - cursoreY) * -1;
+        // Change the planet's position based on this data from the top
         planet.style.transform = `translate(${transX}px,${transY}px)`;
-        // Находим текст(детей) внутри планеты
+        // Target child's - Put text 'inside' planet;
         const childrensText = [planet.children[0], planet.children[1]]
-        // Добавляем трансформ анимацию с дилеем и противоположные значения трансХ и трансУ
+        // Change the text's position based on the planet ( opposite to the planet move );
         childrensText.forEach(child => {
-            child.style.transition = 'transform 1s linear';
-            child.style.transform = `translate(${-transX}px,${-transY}px)`;
+            if (child) {
+                child.style.transition = 'transform 30s linear';
+                child.style.transform = `translate(${-transX}px,${-transY}px)`;
+            }
         })
     };
 
     const pointLeaveHandler = () => {
         const planet = planetRef.current as any;
-        // При выходе - возвращаем в исходное положение
+        // When cursor leave - back default planet's setting
+        planet.style.transition = 'transform 3s linear';
         planet.style.transform = `translate(0px, 0px)`;
-        // Находим текст(детей) внутри планеты
+        // Target child's - Put text 'inside' planet;
         const childrensText = [planet.children[0], planet.children[1]]
-        // Возвращаем детей на место
+        // Back text too
         childrensText.forEach(child => {
-            // child.style.transition = 'transform 1s linear';
-            child.style.transform = `translate(0px, 0px)`;
+            if (child) {
+                child.style.transition = 'transform 3s linear';
+                child.style.transform = `translate(0px, 0px)`;
+            }
         })
     };
 
@@ -58,6 +70,7 @@ const Planet = ({ children, pointBox, top, left, right, bottom }: IPlanet) => {
             </PlanetImage>
             <PlanetAttractionWrapper
                 onPointerLeave={pointLeaveHandler}
+                onPointerEnter={pointerEnterHandler}
                 onMouseMove={mouseMoveHandler}
             />
             <EllipseOneMain>
@@ -71,6 +84,7 @@ const Planet = ({ children, pointBox, top, left, right, bottom }: IPlanet) => {
                     percentage={50}
                     color="rgba(231, 86, 38, 1)"
                     pointBox={pointBox}
+                    animation={ellipse}
                 />
             </EllipseOneMain>
         </PlanetStyle >

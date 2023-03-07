@@ -5,7 +5,7 @@ export const MainStyle = styled.section`
 
     width: 100%;
     min-height: 596px;
-    margin-top: 104px;
+    margin-top: 144px;
 
     font-weight: 700;
     font-size: 120px;

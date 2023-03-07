@@ -10,37 +10,17 @@ export const EllipseAnimationWrapper = styled.div`
     top: 23px;
 `;
 
-export const Point = styled.div`
+export const Dot = styled.div`
     width: 6px;
-    // Привязка к состоянию чтобы анимация не началась раньше
-    height: ${({ state }) => state === 0 ? '0' : '6px'};
+    height: 6px;
     background-color: var(--orange);
     border-radius: 50%;
     z-index: 4;
     
     position: absolute;
-
-    // Искусственная задержка под прогресс анимацию -- Нужно будет найти лучший способ...
-    // Привязка к состоянию чтобы анимация не началась раньше
-    animation-name: ${({ state }) => state === 0 ? 'none' : 'show'};
-    animation-duration: ${({ time }) => time ? `${time + time / 50}s` : '0'};
-
-    @keyframes show {
-        0% {
-            height: 0;
-        }
-
-        99% {
-            height: 0;
-        }
-
-        100% {
-            height: 6px;
-        }
-    }
 `;
 
-export const PointBox = styled.div`
+export const DotBox = styled.div`
     padding: 8px 12px;
     width: 80px;
     max-height: 30px;

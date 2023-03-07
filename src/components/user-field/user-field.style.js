@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
 export const UserFieldStyle = styled.div`
-    width: 421px;
-
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -16,9 +14,7 @@ export const FieldLabel = styled.span`
 `;
 
 export const FieldText = styled.span`
-    min-height: 38px;
     color: var(--orange);
-
     font-weight: 700;
     font-size: 32px;
 `;

@@ -42,9 +42,11 @@ const userSlice = createSlice({
         addCurrentNameAndEmail: (state, { payload }) => {
             state.current.username = payload.username;
             state.current.email = payload.email;
-        },
-        // Completed user's fields;
-        completedUser: (state) => {
+
+            // Add user into list;
+            const currentUser = state.current;
+            state.allParticipants.push(currentUser);
+
             // Check if all fields passed
             if (!(state.current.address.length > 0)) return alert('pls connect your metamask wallet - Top-Right corner button');
             if (!(state.current.email.length > 0)) return;
@@ -52,27 +54,36 @@ const userSlice = createSlice({
             // Yes, It is
             state.regRespImitation = true;
         },
+
+        // ------------------------------------ //
+        // Merge lists of items
         addParticipantList: (state, { payload }) => {
-            const currentUser = state.current;
+            // const currentUser = state.current;
             const lists = payload.items;
 
-            // if current page and to add page not match - stop;
+            // if current page and next page not match - stop;
             if (state.page !== payload.meta.currentPage) return;
 
-            // If our user not in array - we add it as 1st object 
-            // If exist just add new items
-            if (state.allParticipants[0]?.address !== currentUser.address) {
-                state.allParticipants = [currentUser, ...state.allParticipants, ...lists];
-            } else {
+            // That check if new items are already in the list - 
+            // On react-router link its re-add new items even if they already in so we need to check this;
+            if (state.allParticipants[1]?.id !== lists[0].id) {
                 state.allParticipants = [...state.allParticipants, ...lists];
             }
         },
+        // Change page state
         nextPageHandler: (state) => {
             state.page = state.page + 1;
+        },
+        // Remove user from the list
+        removeUser: (state) => {
+            // We know that our current user is in the 1st position in the list, so we can just do Array.shift() and remove 1st item;
+            state.allParticipants.shift();
+
+            // Other whose we should go through array - find your user by PAYLOAD and then remove it;
         },
     }
 });
 
-export const { addCurrentAddress, addCurrentNameAndEmail, completedUser, addParticipantList, nextPageHandler } = userSlice.actions;
+export const { addCurrentAddress, addCurrentNameAndEmail, addParticipantList, nextPageHandler, removeUser } = userSlice.actions;
 
 export default userSlice.reducer;

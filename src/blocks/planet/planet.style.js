@@ -24,7 +24,6 @@ export const PlanetAttractionWrapper = styled.div`
 export const PlanetImage = styled.div`
     width: 320px;
     height: 322px;
-    transition: transform 1s linear;
 
     // Сохраняет форму картинки и создает 3д эффект
     mask-image: url(${planetImage});

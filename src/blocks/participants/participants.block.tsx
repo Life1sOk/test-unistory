@@ -13,27 +13,39 @@ import { ParticipantsStyle, Title, ParticipantsHeader, ParticipantsMain, Spinner
 const Participants = () => {
     // Redux state - dispatch
     const dispatch = useAppDispatch();
-    const uppdatedData = useAppSelector((state) => state.user.allParticipants);
+
+    // Step 1 ---> redux hook fetch 1st(0) page; And always listening if Page is change
+    // If PAGE change ---> Hook re-fetch and take new items;
     const page = useAppSelector((state) => state.user.page);
-    // Hook - fetch list
     const { data, isLoading } = useGetParticipantsQuery(page);
 
+    // Step 2 ---> useEffect listening if data change
+    // When it change send this new data to the redux store;
+    useEffect(() => {
+        // On data change it send to the redux store
+        if (data) dispatch(addParticipantList(data));
+    }, [data, dispatch]);
+
+    // Step 3 ---> After new data sended to the Redux they merge into one big array
+    const uppdatedData = useAppSelector((state) => state.user.allParticipants);
+
+    // Step 4 ---> when the user scrolls to the bottom of the block at the end we trigger a scroll event and change PAGE from Step 1;
     const scrollHandler = (e: any) => {
         // scrollBarHeight = currentBlockHeight + scrolledNumber;
         let scrollBarHeight = e.currentTarget.scrollHeight;
         let currentBlockHeight = e.target.clientHeight;
         let scrolledNumber = e.currentTarget.scrollTop;
 
-        // Change page
-        if (scrollBarHeight - (currentBlockHeight + scrolledNumber) < 100) {
+        // if page number more then tital pages - stop function;
+        if (data && page === data?.meta.totalPages) return;
+
+        // Change page on scroll bottom
+        if (scrollBarHeight - (currentBlockHeight + scrolledNumber) < 1) {
             dispatch(nextPageHandler())
         }
     };
 
-    useEffect(() => {
-        // On data change it send to the redux store
-        if (data) dispatch(addParticipantList(data));
-    }, [data, dispatch]);
+    // =--------------------------------------------------------------------------------//
 
     // While loading - show spinner;
     if (isLoading) {

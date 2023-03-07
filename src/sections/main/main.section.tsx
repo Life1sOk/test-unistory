@@ -9,7 +9,7 @@ const Main = () => {
         <MainStyle>
             <TextCallFirstLine>EXPLORE YOUR OWN PLANET</TextCallFirstLine>
             <TextCallSecondLine>IN <MarkText>OUR NEW</MarkText> METAVERSE</TextCallSecondLine>
-            <Planet pointBox top={0} left={621}>
+            <Planet pointBox top={0} left={621} ellipse={true}>
                 <TextCallFirstLine type='orange'>EXPLORE YOUR OWN PLANET</TextCallFirstLine>
                 <TextCallSecondLine type='orange'>IN <MarkText>OUR NEW</MarkText> METAVERSE</TextCallSecondLine>
             </Planet>
