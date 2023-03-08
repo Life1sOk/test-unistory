@@ -43,16 +43,16 @@ const userSlice = createSlice({
             state.current.username = payload.username;
             state.current.email = payload.email;
 
-            // Add user into list;
-            const currentUser = state.current;
-            state.allParticipants.push(currentUser);
-
             // Check if all fields passed
             if (!(state.current.address.length > 0)) return alert('pls connect your metamask wallet - Top-Right corner button');
             if (!(state.current.email.length > 0)) return;
             if (!(state.current.username.length > 0)) return;
             // Yes, It is
             state.regRespImitation = true;
+
+            // Add user into list;
+            const currentUser = state.current;
+            state.allParticipants.push(currentUser);
         },
 
         // ------------------------------------ //

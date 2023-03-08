@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useEthers } from '@usedapp/core';
 // Redux toolkit
 import { useAppDispatch } from '../../app-redux/hooks';
-import { addCurrentAddress } from '../../app-redux/slices/user.slice';
+import { addCurrentAddress } from '../../app-redux/slices/participant.slice';
 // Components
 import Button from '../../components/button/button.component';
 // Style

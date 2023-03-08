@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useGetParticipantsQuery } from '../../app-redux/api/participantsAPI';
 
 import { useAppSelector, useAppDispatch } from '../../app-redux/hooks';
-import { addParticipantList, nextPageHandler } from '../../app-redux/slices/user.slice';
+import { addParticipantList, nextPageHandler } from '../../app-redux/slices/participant.slice';
 
 import LoadingSpinner from '../../components/loading-spinner/loading-spinner.component';
 import Participant from '../../components/participant/participant.component';

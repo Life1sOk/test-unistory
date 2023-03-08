@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 
 import { useAppDispatch } from '../../app-redux/hooks';
-import { addCurrentNameAndEmail } from '../../app-redux/slices/user.slice';
+import { addCurrentNameAndEmail } from '../../app-redux/slices/participant.slice';
 
 import Input from '../../components/input/input.component';
 import Button from '../../components/button/button.component';

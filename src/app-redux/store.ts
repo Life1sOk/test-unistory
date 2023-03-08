@@ -2,7 +2,7 @@ import { configureStore } from '@reduxjs/toolkit'
 import { setupListeners } from '@reduxjs/toolkit/dist/query';
 
 import extentionReducer from './slices/extention.slice';
-import userReducer from './slices/user.slice';
+import userReducer from './slices/participant.slice';
 import { participantsApi } from './api/participantsAPI';
 
 const store = configureStore({
