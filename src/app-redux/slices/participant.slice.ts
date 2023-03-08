@@ -30,8 +30,8 @@ const initialState: IState = {
     allParticipants: [],
 };
 
-const userSlice = createSlice({
-    name: 'user',
+const participantSlice = createSlice({
+    name: 'participant',
     initialState,
     reducers: {
         // Add address to the current user;
@@ -84,6 +84,6 @@ const userSlice = createSlice({
     }
 });
 
-export const { addCurrentAddress, addCurrentNameAndEmail, addParticipantList, nextPageHandler, removeUser } = userSlice.actions;
+export const { addCurrentAddress, addCurrentNameAndEmail, addParticipantList, nextPageHandler, removeUser } = participantSlice.actions;
 
-export default userSlice.reducer;
+export default participantSlice.reducer;

@@ -5,7 +5,7 @@ import UserField from '../../components/user-field/user-field.component';
 import { ProfileStyle, ProfileStyleTitle } from './profile.style';
 
 const Profile = () => {
-    const user = useAppSelector((state) => state.user.current);
+    const user = useAppSelector((state) => state.participant.current);
 
     return (
         <ProfileStyle>

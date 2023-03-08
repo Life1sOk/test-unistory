@@ -2,13 +2,13 @@ import { configureStore } from '@reduxjs/toolkit'
 import { setupListeners } from '@reduxjs/toolkit/dist/query';
 
 import extentionReducer from './slices/extention.slice';
-import userReducer from './slices/participant.slice';
+import participantReducer from './slices/participant.slice';
 import { participantsApi } from './api/participantsAPI';
 
 const store = configureStore({
     reducer: {
         extention: extentionReducer,
-        user: userReducer,
+        participant: participantReducer,
         [participantsApi.reducerPath]: participantsApi.reducer,
     },
     // Adding the api middleware enables caching, invalidation, polling,

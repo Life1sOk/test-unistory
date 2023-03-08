@@ -6,7 +6,7 @@ import { useAppSelector } from '../../app-redux/hooks';
 import { UserStyle, ButtonWrapper } from './user.style';
 
 const User = () => {
-    const { email, username } = useAppSelector((state) => state.user.current);
+    const { email, username } = useAppSelector((state) => state.participant.current);
 
     return (
         <UserStyle>

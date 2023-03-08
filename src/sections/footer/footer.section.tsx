@@ -10,7 +10,7 @@ import TextBox from '../../components/text-box/text-box.component';
 import { FooterStyle, SignUpContainer, TextBoxWrapper } from './footer.style';
 
 const Footer = () => {
-    const signedUp = useAppSelector((state) => state.user.regRespImitation);
+    const signedUp = useAppSelector((state) => state.participant.regRespImitation);
 
     return (
         <FooterStyle>

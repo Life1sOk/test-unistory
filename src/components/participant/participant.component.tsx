@@ -16,7 +16,7 @@ export interface IParticipant {
 const Participant = memo(({ username, email, address }: IParticipant) => {
     const dispatch = useAppDispatch();
     const [current, setCurrent] = useState(false);
-    const currentUserAddress = useAppSelector((state) => state.user.current.address);
+    const currentUserAddress = useAppSelector((state) => state.participant.current.address);
 
     // Re-move user from the list;
     const onDeleteHandler = () => {
