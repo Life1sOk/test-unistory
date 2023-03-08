@@ -15,6 +15,7 @@ interface IState {
         address: string,
     },
     page: number,
+    noPages: boolean,
     allParticipants: IParticipant[],
 };
 
@@ -27,6 +28,7 @@ const initialState: IState = {
         address: '',
     },
     page: 0,
+    noPages: false,
     allParticipants: [],
 };
 
@@ -47,12 +49,13 @@ const participantSlice = createSlice({
             if (!(state.current.address.length > 0)) return alert('pls connect your metamask wallet - Top-Right corner button');
             if (!(state.current.email.length > 0)) return;
             if (!(state.current.username.length > 0)) return;
-            // Yes, It is
-            state.regRespImitation = true;
 
             // Add user into list;
             const currentUser = state.current;
-            state.allParticipants.push(currentUser);
+            state.allParticipants.unshift(currentUser);
+
+            // Yes, It is
+            state.regRespImitation = true;
         },
 
         // ------------------------------------ //
@@ -61,12 +64,15 @@ const participantSlice = createSlice({
             // const currentUser = state.current;
             const lists = payload.items;
 
-            // if current page and next page not match - stop;
-            if (state.page !== payload.meta.currentPage) return;
+            // If more then total stop ;
+            if (state.page > payload.meta.totalPage) {
+                state.noPages = true;
+                return;
+            }
 
             // That check if new items are already in the list - 
             // On react-router link its re-add new items even if they already in so we need to check this;
-            if (state.allParticipants[1]?.id !== lists[0].id) {
+            if (state.allParticipants[1]?.id !== lists[0]?.id) {
                 state.allParticipants = [...state.allParticipants, ...lists];
             }
         },
@@ -78,8 +84,6 @@ const participantSlice = createSlice({
         removeUser: (state) => {
             // We know that our current user is in the 1st position in the list, so we can just do Array.shift() and remove 1st item;
             state.allParticipants.shift();
-
-            // Other whose we should go through array - find your user by PAYLOAD and then remove it;
         },
     }
 });

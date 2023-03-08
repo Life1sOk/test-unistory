@@ -1,5 +1,5 @@
-import Profile from '../../blocks/profile/profile.block';
-import Planet from '../../blocks/planet/planet.block';
+import Profile from '../../entities/profile/profile.block';
+import Planet from '../../entities/planet/planet.block';
 
 import { ProfilePageStyle } from './profile.style';
 

@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import ProtectedRoute from '../utils/protectedRoute';
 
-import Header from '../sections/header/header.section';
+import Header from '../widgets/header/header.section';
 import HomePage from '../pages/home/home.page';
 import ProfilePage from '../pages/profile/profile.page';
 

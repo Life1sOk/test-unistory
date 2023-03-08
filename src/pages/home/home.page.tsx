@@ -1,15 +1,23 @@
-import { HomePageStyle } from "./home.style";
+import { useAppSelector } from "../../app-redux/hooks";
 
-import Main from "../../sections/main/main.section";
-import Footer from "../../sections/footer/footer.section";
-import ExtentionWindow from "../../sections/extention-window/extention-window.section";
+import { HomePageStyle, FooterStyle } from "./home.style";
+
+import Registration from "../../widgets/registration/registration.section";
+import Participants from "../../widgets/participants/participants.block";
+import Main from "../../widgets/main/main.section";
+import ExtentionWindow from "../../entities/extention-window/extention-window.section";
 
 const HomePage = () => {
+    const signedUp = useAppSelector((state) => state.participant.regRespImitation);
+
     return (
         <HomePageStyle>
             <ExtentionWindow />
             <Main />
-            <Footer />
+            <FooterStyle>
+                <Registration />
+                {signedUp && <Participants />}
+            </FooterStyle>
         </HomePageStyle>
     )
 };
