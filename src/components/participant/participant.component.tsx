@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, memo } from 'react';
 
 import { Link } from 'react-router-dom';
 
@@ -13,7 +13,7 @@ export interface IParticipant {
     address?: string
 };
 
-const Participant = ({ username, email, address }: IParticipant) => {
+const Participant = memo(({ username, email, address }: IParticipant) => {
     const dispatch = useAppDispatch();
     const [current, setCurrent] = useState(false);
     const currentUserAddress = useAppSelector((state) => state.user.current.address);
@@ -54,6 +54,6 @@ const Participant = ({ username, email, address }: IParticipant) => {
             }
         </>
     )
-};
+});
 
 export default Participant;

@@ -4,7 +4,7 @@ import Planet from '../../blocks/planet/planet.block';
 import { MainStyle, TextCallFirstLine, TextCallSecondLine, MarkText, TextWrapper, StatusBox, StatsTitle, Stat, Number, Label } from './main.style';
 
 const Main = () => {
-    console.log('чек')
+
     return (
         <MainStyle>
             <TextCallFirstLine>EXPLORE YOUR OWN PLANET</TextCallFirstLine>
