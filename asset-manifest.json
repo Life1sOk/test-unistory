@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/test-unistory/static/css/main.1b603136.css",
-    "main.js": "/test-unistory/static/js/main.05bd8630.js",
+    "main.js": "/test-unistory/static/js/main.f24863b0.js",
     "static/media/planet.png": "/test-unistory/static/media/planet.5ede6091c27c7151d750.png",
     "index.html": "/test-unistory/index.html",
     "main.1b603136.css.map": "/test-unistory/static/css/main.1b603136.css.map",
-    "main.05bd8630.js.map": "/test-unistory/static/js/main.05bd8630.js.map"
+    "main.f24863b0.js.map": "/test-unistory/static/js/main.f24863b0.js.map"
   },
   "entrypoints": [
     "static/css/main.1b603136.css",
-    "static/js/main.05bd8630.js"
+    "static/js/main.f24863b0.js"
   ]
 }
