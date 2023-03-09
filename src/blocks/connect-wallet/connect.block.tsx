@@ -5,7 +5,7 @@ import { useEthers } from '@usedapp/core';
 import { useAppDispatch } from '../../app-redux/hooks';
 import { addCurrentAddress } from '../../app-redux/slices/participant.slice';
 
-import Button from '../../shared/button/button.component';
+import Button from '../../components/button/button.component';
 // Style
 import { MetaConnectStyle, AccountLine } from './connect.style';
 

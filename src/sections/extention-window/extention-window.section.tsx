@@ -2,8 +2,8 @@
 import { useAppSelector, useAppDispatch } from '../../app-redux/hooks';
 import { extentionChangeHandler } from '../../app-redux/slices/extention.slice';
 
-import BlockTitle from '../../shared/block-title/block-title.component';
-import Button from '../../shared/button/button.component';
+import BlockTitle from '../../components/block-title/block-title.component';
+import Button from '../../components/button/button.component';
 
 import { ExtentinWindowStyle, ExtentionDescription, BlackBoxWrapper } from './extention-window.style';
 

@@ -1,7 +1,7 @@
-import TextBox from '../../shared/text-box/text-box.component';
-import Planet from '../../entities/planet/planet.block';
+import TextBox from '../../components/text-box/text-box.component';
+import Planet from '../../blocks/planet/planet.block';
 
-import TextCall from '../../entities/text-call/text-call.e';
+import TextCall from '../../blocks/text-call/text-call.e';
 
 import { MainStyle, TextWrapper, StatusBox, StatsTitle, Stat, Number, Label } from './main.style';
 

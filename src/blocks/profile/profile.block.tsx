@@ -1,6 +1,6 @@
 import { useAppSelector } from '../../app-redux/hooks';
 
-import UserField from '../../shared/user-field/user-field.component';
+import UserField from '../../components/user-field/user-field.component';
 import { ProfileStyle, ProfileStyleTitle } from './profile.style';
 
 const Profile = () => {

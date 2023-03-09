@@ -5,8 +5,8 @@ import { useGetParticipantsQuery } from '../../app-redux/api/participantsAPI';
 import { useAppSelector, useAppDispatch } from '../../app-redux/hooks';
 import { addParticipantList } from '../../app-redux/slices/participant.slice';
 
-import LoadingSpinner from '../../shared/loading-spinner/loading-spinner.component';
-import ScrollList from '../../features/scroll-list/scroll-list';
+import LoadingSpinner from '../../components/loading-spinner/loading-spinner.component';
+import ScrollList from '../../blocks/scroll-list/scroll-list';
 
 import { ParticipantsStyle, Title, ParticipantsHeader, SpinnerWrapper } from './participants.style';
 

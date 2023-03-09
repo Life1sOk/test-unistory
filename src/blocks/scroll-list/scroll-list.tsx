@@ -1,7 +1,7 @@
 import { useAppSelector, useAppDispatch } from '../../app-redux/hooks';
 import { nextPageHandler } from '../../app-redux/slices/participant.slice';
 
-import Participant from '../../entities/participant/participant.component';
+import Participant from '../participant/participant.component';
 
 import { ParticipantsMain } from './scroll-list.style';
 

@@ -1,9 +1,11 @@
+import { lazy } from 'react';
+
 import { Routes, Route } from 'react-router-dom';
 import ProtectedRoute from '../utils/protectedRoute';
 
-import Header from '../widgets/header/header.section';
-import HomePage from '../pages/home/home.page';
-import ProfilePage from '../pages/profile/profile.page';
+import Header from '../sections/header/header.section';
+const HomePage = lazy(() => import('./home/home.page'));
+const ProfilePage = lazy(() => import('./profile/profile.page'));
 
 const Routing = () => {
     return (

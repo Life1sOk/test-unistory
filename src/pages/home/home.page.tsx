@@ -2,10 +2,10 @@ import { useAppSelector } from "../../app-redux/hooks";
 
 import { HomePageStyle, FooterStyle } from "./home.style";
 
-import Registration from "../../widgets/registration/registration.section";
-import Participants from "../../widgets/participants/participants.block";
-import Main from "../../widgets/main/main.section";
-import ExtentionWindow from "../../entities/extention-window/extention-window.section";
+import Registration from "../../sections/registration/registration.section";
+import Participants from "../../sections/participants/participants.section";
+import Main from "../../sections/main/main.section";
+import ExtentionWindow from "../../sections/extention-window/extention-window.section";
 
 const HomePage = () => {
     const signedUp = useAppSelector((state) => state.participant.regRespImitation);

@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 
-import EllipseProgress from '../../shared/ellipse-progress/ellipse-progress.component';
+import EllipseProgress from '../../components/ellipse-progress/ellipse-progress.component';
 
 import { PlanetStyle, PlanetImage, PlanetAttractionWrapper, EllipseOneMain, EllipseTwo, EllipseThree } from './planet.style';
 

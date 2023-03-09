@@ -1,7 +1,7 @@
-import BlockTitle from '../../shared/block-title/block-title.component';
-import TextBox from '../../shared/text-box/text-box.component';
+import BlockTitle from '../../components/block-title/block-title.component';
+import TextBox from '../../components/text-box/text-box.component';
 
-import ByForm from '../../features/byForm/by-form.f';
+import SignUp from '../../blocks/sign-up/sign-up.block';
 
 import { SignUpContainer, TextBoxWrapper } from './registration.style.js';
 
@@ -13,7 +13,7 @@ const Registration = () => {
             <TextBoxWrapper>
                 <TextBox text='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ' />
             </TextBoxWrapper>
-            <ByForm />
+            <SignUp />
         </SignUpContainer>
     )
 };
