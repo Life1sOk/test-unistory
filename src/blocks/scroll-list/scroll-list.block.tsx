@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 import { useAppSelector, useAppDispatch } from '../../app-redux/hooks';
 import { nextPageHandler } from '../../app-redux/slices/participant.slice';
 

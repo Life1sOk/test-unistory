@@ -19,8 +19,8 @@ const Participants = () => {
     const page = useAppSelector((state) => state.participant.page);
     const { data, isLoading } = useGetParticipantsQuery(page);
 
-    // // useEffect listening if data change
-    // // When it change send this new data to the redux store;
+    // // // useEffect listening if data change
+    // // // When it change send this new data to the redux store;
     useEffect(() => {
         // On data change it send to the redux store
         if (data) dispatch(addParticipantList(data));
