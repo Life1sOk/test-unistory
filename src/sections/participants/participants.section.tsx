@@ -6,7 +6,7 @@ import { useAppSelector, useAppDispatch } from '../../app-redux/hooks';
 import { addParticipantList } from '../../app-redux/slices/participant.slice';
 
 import LoadingSpinner from '../../components/loading-spinner/loading-spinner.component';
-import ScrollList from '../../blocks/scroll-list/scroll-list';
+import ScrollList from '../../blocks/scroll-list/scroll-list.block';
 
 import { ParticipantsStyle, Title, ParticipantsHeader, SpinnerWrapper } from './participants.style';
 
