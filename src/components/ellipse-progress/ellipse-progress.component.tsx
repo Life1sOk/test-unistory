@@ -72,6 +72,7 @@ const EllipseProgress = ({ size, strokeWidth, percentage, color, pointBox, anima
                     transform={`rotate(-90 ${size / 2} ${size / 2})`}
                     strokeDasharray={!animation ? `${noAnimation}` : `${dash} ${circumference - dash}`}
                     strokeLinecap="round"
+                    style={{ transition: 'all 0s linear' }}
                     onTransitionEnd={() => circleRef.current.style.transition = 'all 0s linear'}
                 />
             </svg>
