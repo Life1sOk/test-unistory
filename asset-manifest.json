@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "/test-unistory/static/css/main.179aea35.css",
-    "main.js": "/test-unistory/static/js/main.8c281510.js",
-    "static/js/728.ee72c45b.chunk.js": "/test-unistory/static/js/728.ee72c45b.chunk.js",
-    "static/js/431.b3ad0528.chunk.js": "/test-unistory/static/js/431.b3ad0528.chunk.js",
+    "main.js": "/test-unistory/static/js/main.47843487.js",
+    "static/js/728.2a559413.chunk.js": "/test-unistory/static/js/728.2a559413.chunk.js",
+    "static/js/431.86f1afe2.chunk.js": "/test-unistory/static/js/431.86f1afe2.chunk.js",
     "static/media/planet.png": "/test-unistory/static/media/planet.5ede6091c27c7151d750.png",
     "index.html": "/test-unistory/index.html",
     "main.179aea35.css.map": "/test-unistory/static/css/main.179aea35.css.map",
-    "main.8c281510.js.map": "/test-unistory/static/js/main.8c281510.js.map",
-    "728.ee72c45b.chunk.js.map": "/test-unistory/static/js/728.ee72c45b.chunk.js.map",
-    "431.b3ad0528.chunk.js.map": "/test-unistory/static/js/431.b3ad0528.chunk.js.map"
+    "main.47843487.js.map": "/test-unistory/static/js/main.47843487.js.map",
+    "728.2a559413.chunk.js.map": "/test-unistory/static/js/728.2a559413.chunk.js.map",
+    "431.86f1afe2.chunk.js.map": "/test-unistory/static/js/431.86f1afe2.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.179aea35.css",
-    "static/js/main.8c281510.js"
+    "static/js/main.47843487.js"
   ]
 }
