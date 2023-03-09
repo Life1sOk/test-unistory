@@ -18,7 +18,7 @@ const Planet = ({ children, pointBox, top, left, right, bottom, ellipse }: IPlan
     const planetRef = useRef<HTMLDivElement>();
 
     // Higher number = lower, Lower number = Faster;
-    let transitionSpeed = 15;
+    let transitionSpeed = 20;
 
     const pointerEnterHandler = () => {
         const planet = planetRef.current as any;
