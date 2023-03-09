@@ -6,12 +6,19 @@ import ProtectedRoute from '../utils/protectedRoute';
 import Header from '../sections/header/header.section';
 import LoadingSpinner from '../components/loading-spinner/loading-spinner.component';
 
+import { SpinnerWrapper } from './index.style';
+
 const HomePage = lazy(() => import('./home/home.page'));
 const ProfilePage = lazy(() => import('./profile/profile.page'));
 
+
 const Routing = () => {
     return (
-        <Suspense fallback={<LoadingSpinner />}>
+        <Suspense
+            fallback={<SpinnerWrapper>
+                <LoadingSpinner />
+            </SpinnerWrapper>
+            }>
             <Routes>
                 <Route path='/' element={<Header />}>
                     <Route index element={<HomePage />} />

@@ -1,10 +1,8 @@
-import { SpinnerWrapper, SpinnerStyle } from './loading-spinner.style';
+import { SpinnerStyle } from './loading-spinner.style';
 
 const LoadingSpinner = () => {
     return (
-        <SpinnerWrapper>
-            <SpinnerStyle />
-        </SpinnerWrapper>
+        <SpinnerStyle />
     )
 };
 
