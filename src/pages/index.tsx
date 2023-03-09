@@ -21,6 +21,7 @@ const Routing = () => {
             }>
             <Routes>
                 <Route path='/' element={<Header />}>
+
                     <Route index element={<HomePage />} />
                     <Route path='/profile'
                         element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />
