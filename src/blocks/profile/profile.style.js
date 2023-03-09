@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 export const ProfileStyle = styled.div`
-    margin-top: 168px;
+    width: fit-content;
+    margin-top: 110px;
 
     display: flex;
     flex-direction: column;

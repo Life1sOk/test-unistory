@@ -21,12 +21,3 @@ export const ParticipantsMain = styled.div`
         background-clip: content-box;
     }
 `;
-
-export const SpinnerWrapper = styled.div`
-    width: 668px;
-    height: 100%;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-`;

@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-interface IParticipant {
-    id?: number,
+export interface IParticipant {
+    id?: number | null,
     username: string;
     email: string;
     address: string;
@@ -51,8 +51,11 @@ const participantSlice = createSlice({
             if (!(state.current.username.length > 0)) return;
 
             // Add user into list;
-            const currentUser = state.current;
-            state.allParticipants.unshift(currentUser);
+            // Check a localStore if user already deleted yourself from the list
+            if (!window.localStorage.getItem('Leave Participation list')) {
+                const currentUser = state.current;
+                state.allParticipants.unshift(currentUser);
+            };
 
             // Yes, It is
             state.regRespImitation = true;
@@ -68,13 +71,13 @@ const participantSlice = createSlice({
             if (state.page > payload.meta.totalPage) {
                 state.noPages = true;
                 return;
-            }
+            };
 
             // That check if new items are already in the list - 
             // On react-router link its re-add new items even if they already in so we need to check this;
-            if (state.allParticipants[1]?.id !== lists[0]?.id) {
+            if (!state.allParticipants.find(element => element.id === lists[0]?.id)) {
                 state.allParticipants = [...state.allParticipants, ...lists];
-            }
+            };
         },
         // Change page state
         nextPageHandler: (state) => {

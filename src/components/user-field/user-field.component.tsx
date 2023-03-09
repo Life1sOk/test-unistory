@@ -2,7 +2,7 @@ import { UserFieldStyle, FieldLabel, FieldText } from './user-field.style';
 
 interface IUserField {
     label: string,
-    text: string,
+    text?: string,
 };
 
 const UserField = ({ label, text }: IUserField) => {

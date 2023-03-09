@@ -3,7 +3,7 @@ import { memo } from 'react';
 import TextBox from '../../components/text-box/text-box.component';
 import Planet from '../../blocks/planet/planet.block';
 
-import TextCall from '../../blocks/text-call/text-call.e';
+import TextCall from '../../blocks/text-call/text-call.block';
 
 import { MainStyle, TextWrapper, StatusBox, StatsTitle, Stat, Number, Label } from './main.style';
 

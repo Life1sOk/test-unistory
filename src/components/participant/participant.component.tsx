@@ -7,13 +7,9 @@ import { removeUser } from '../../app-redux/slices/participant.slice';
 
 import { ParticipantStyle, ParticipantsWrapper, ParticipantsMainStyle, NameP, EmailP, WalletP, Сross } from './participant.style';
 
-export interface IParticipant {
-    username?: string,
-    email?: string,
-    address?: string,
-};
+import { IParticipant } from '../../app-redux/slices/participant.slice';
 
-const Participant = memo(({ username, email, address }: IParticipant) => {
+const Participant = memo(({ id, username, email, address }: IParticipant) => {
     const dispatch = useAppDispatch();
     const [current, setCurrent] = useState(false);
     const currentUserAddress = useAppSelector((state) => state.participant.current.address);
@@ -22,7 +18,10 @@ const Participant = memo(({ username, email, address }: IParticipant) => {
     const onDeleteHandler = () => {
         dispatch(removeUser());
         setCurrent(false);
-    }
+
+        // Save our chages in localStore;
+        window.localStorage.setItem('Leave Participation list', `${address}`);
+    };
 
     // Check if current participant is our user base on address
     // If true => change CURRENT state;
@@ -36,21 +35,21 @@ const Participant = memo(({ username, email, address }: IParticipant) => {
                 current ?
 
                     <ParticipantsWrapper>
-                        <Link to='/profile'>
-                            <ParticipantsMainStyle>
-                                <NameP>{username}</NameP>
-                                <EmailP>{email}</EmailP>
-                                <WalletP>{address}</WalletP>
-                            </ParticipantsMainStyle>
-                        </Link>
+                        <ParticipantsMainStyle>
+                            <NameP>{username}</NameP>
+                            <EmailP>{email}</EmailP>
+                            <WalletP>{address}</WalletP>
+                        </ParticipantsMainStyle>
                         <Сross onClick={onDeleteHandler}>&times;</Сross>
                     </ParticipantsWrapper>
                     :
-                    <ParticipantStyle>
-                        <NameP>{username}</NameP>
-                        <EmailP>{email}</EmailP>
-                        <WalletP>{address}</WalletP>
-                    </ParticipantStyle>
+                    <Link to={`/${id}`}>
+                        <ParticipantStyle>
+                            <NameP>{username}</NameP>
+                            <EmailP>{email}</EmailP>
+                            <WalletP>{address}</WalletP>
+                        </ParticipantStyle>
+                    </Link>
             }
         </>
     )

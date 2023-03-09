@@ -1,9 +1,7 @@
-import { useEffect } from 'react';
-
 import { useAppSelector, useAppDispatch } from '../../app-redux/hooks';
 import { nextPageHandler } from '../../app-redux/slices/participant.slice';
 
-import Participant from '../participant/participant.component';
+import Participant from '../../components/participant/participant.component';
 
 import { ParticipantsMain } from './scroll-list.style';
 
@@ -33,6 +31,7 @@ const ScrollList = () => {
                 uppdatedData?.map((item, index) => (
                     <Participant
                         key={index}
+                        id={item.id}
                         username={item.username}
                         email={item.email}
                         address={item.address}

@@ -28,7 +28,10 @@ export const participantsApi = createApi({
                     ? [...result.items.map(({ id }) => ({ type: 'Participants' as const, id })), 'Participants']
                     : ['Participants'],
         }),
+        getViewParticipant: builder.query<IParticipant, number | void>({
+            query: (id) => `/data/id/${id}`
+        }),
     }),
 });
 
-export const { useGetParticipantsQuery } = participantsApi;
+export const { useGetParticipantsQuery, useGetViewParticipantQuery } = participantsApi;

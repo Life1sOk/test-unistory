@@ -11,6 +11,5 @@ export const FooterStyle = styled.div`
     padding: 48px 64px 0 64px;
 
     display: flex;
-    /* justify-content: space-between; */
     gap: 136px;
 `;

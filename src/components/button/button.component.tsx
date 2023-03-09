@@ -10,6 +10,7 @@ interface IButtonPros {
 }
 
 export const Button = ({ label, inactive, onClickHandler, type }: IButtonPros) => {
+
     return (
         <ButtonStyle
             unactive={inactive}

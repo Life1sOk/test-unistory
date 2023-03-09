@@ -17,10 +17,13 @@ interface IPlanet {
 const Planet = ({ children, pointBox, top, left, right, bottom, ellipse }: IPlanet) => {
     const planetRef = useRef<HTMLDivElement>();
 
+    // Higher number = lower, Lower number = Faster;
+    let transitionSpeed = 15;
+
     const pointerEnterHandler = () => {
         const planet = planetRef.current as any;
         // As soon as we start the mouse, we create an animation
-        planet.style.transition = `transform 30s linear`;
+        planet.style.transition = `transform ${transitionSpeed}s linear`;
     };
 
     const mouseMoveHandler = (event: MouseEvent) => {
@@ -41,7 +44,7 @@ const Planet = ({ children, pointBox, top, left, right, bottom, ellipse }: IPlan
         // Change the text's position based on the planet ( opposite to the planet move );
         childrensText.forEach(child => {
             if (child) {
-                child.style.transition = 'transform 30s linear';
+                child.style.transition = `transform ${transitionSpeed}s linear`;
                 child.style.transform = `translate(${-transX}px,${-transY}px)`;
             }
         })

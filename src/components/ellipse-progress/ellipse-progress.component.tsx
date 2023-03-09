@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 import { useAppSelector } from "../../app-redux/hooks";
 
@@ -21,6 +21,8 @@ const EllipseProgress = ({ size, strokeWidth, percentage, color, pointBox, anima
     // State of circle 
     const [progress, setProgress] = useState(0);
 
+    const circleRef = useRef() as any;
+
     // Calculate circle's animation;
     const viewBox = `0 0 ${size} ${size}`;
     const radius = (size - strokeWidth) / 2;
@@ -39,6 +41,11 @@ const EllipseProgress = ({ size, strokeWidth, percentage, color, pointBox, anima
             setOneDot(true);
             setTimeout(() => setTwoDot(true), 1500);
             setTimeout(() => setThreeDot(true), 3000);
+
+            // Controle transition - On screen size change its jump out;
+            if (circleRef) {
+                circleRef.current.style.transition = 'all 3s linear';
+            }
         }
     }, [percentage, extentionIsOpen]);
 
@@ -55,6 +62,7 @@ const EllipseProgress = ({ size, strokeWidth, percentage, color, pointBox, anima
         <EllipseAnimationWrapper>
             <svg width={size} height={size} viewBox={viewBox}>
                 <circle
+                    ref={circleRef}
                     fill="none"
                     stroke={color}
                     cx={size / 2}
@@ -64,7 +72,7 @@ const EllipseProgress = ({ size, strokeWidth, percentage, color, pointBox, anima
                     transform={`rotate(-90 ${size / 2} ${size / 2})`}
                     strokeDasharray={!animation ? `${noAnimation}` : `${dash} ${circumference - dash}`}
                     strokeLinecap="round"
-                    style={{ transition: `all 3s linear` }}
+                    onTransitionEnd={() => circleRef.current.style.transition = 'all 0s linear'}
                 />
             </svg>
             {
