@@ -36,16 +36,16 @@ const EllipseProgress = ({ size, strokeWidth, percentage, color, pointBox, anima
     useEffect(() => {
         // Binding to extension-window so that the animation does not start if the window is open
         if (!extentionIsOpen) {
+            // Controle transition - On screen size change its jump out;
+            if (circleRef) {
+                circleRef.current.style.transition = 'all 3s linear';
+            }
+
             setProgress(percentage);
             // Display dots while transition is running
             setOneDot(true);
             setTimeout(() => setTwoDot(true), 1500);
             setTimeout(() => setThreeDot(true), 3000);
-
-            // Controle transition - On screen size change its jump out;
-            if (circleRef) {
-                circleRef.current.style.transition = 'all 3s linear';
-            }
         }
     }, [percentage, extentionIsOpen]);
 
