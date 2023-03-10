@@ -11,7 +11,7 @@ import { ButtonWrapper, SignUpForm, UserStyle } from './sign-up.style';
 
 const SignUp = () => {
     const dispatch = useAppDispatch();
-    const signedUp = useAppSelector((state) => state.participant.regRespImitation);
+    const signedUp = useAppSelector((state) => state.participant.userIn);
     const { email, username } = useAppSelector((state) => state.participant.current);
 
     const nameRef = useRef() as any;

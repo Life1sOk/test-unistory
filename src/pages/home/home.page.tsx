@@ -8,7 +8,7 @@ import Main from "../../sections/main/main.section";
 import ExtentionWindow from "../../sections/extention-window/extention-window.section";
 
 const HomePage = () => {
-    const signedUp = useAppSelector((state) => state.participant.regRespImitation);
+    const signedUp = useAppSelector((state) => state.participant.participantList);
 
     return (
         <HomePageStyle>

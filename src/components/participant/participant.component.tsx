@@ -18,9 +18,6 @@ const Participant = memo(({ id, username, email, address }: IParticipant) => {
     const onDeleteHandler = () => {
         dispatch(removeUser());
         setCurrent(false);
-
-        // Save our chages in localStore;
-        window.localStorage.setItem('Leave Participation list', `${address}`);
     };
 
     // Check if current participant is our user base on address

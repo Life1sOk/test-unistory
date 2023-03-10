@@ -8,7 +8,8 @@ export interface IParticipant {
 };
 
 interface IState {
-    regRespImitation: boolean,
+    userIn: boolean,
+    participantList: boolean,
     current: {
         username: string,
         email: string,
@@ -21,7 +22,8 @@ interface IState {
 
 const initialState: IState = {
     // registration response imitation - true (completed) / false (no-completed) based on 'current(Object)' complete fields;
-    regRespImitation: false,
+    userIn: false,
+    participantList: false,
     current: {
         username: '',
         email: '',
@@ -51,14 +53,13 @@ const participantSlice = createSlice({
             if (!(state.current.username.length > 0)) return;
 
             // Add user into list;
-            // Check a localStore if user already deleted yourself from the list
-            if (!window.localStorage.getItem('Leave Participation list')) {
-                const currentUser = state.current;
-                state.allParticipants.unshift(currentUser);
-            };
+            const currentUser = state.current;
+            state.allParticipants.unshift(currentUser);
 
-            // Yes, It is
-            state.regRespImitation = true;
+            // User singed in;
+            state.userIn = true;
+            // Open List;
+            state.participantList = true;
         },
 
         // ------------------------------------ //
@@ -87,6 +88,9 @@ const participantSlice = createSlice({
         removeUser: (state) => {
             // We know that our current user is in the 1st position in the list, so we can just do Array.shift() and remove 1st item;
             state.allParticipants.shift();
+
+            // User singed out;
+            state.userIn = false;
         },
     }
 });
