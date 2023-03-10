@@ -7,6 +7,7 @@ import { ParticipantsMain } from './scroll-list.style';
 
 const ScrollList = () => {
     const dispatch = useAppDispatch();
+    const { userIn, userData } = useAppSelector((state) => state.user);
     const uppdatedData = useAppSelector((state) => state.participant.allParticipants);
     const stop = useAppSelector((state) => state.participant.noPages);
 
@@ -27,6 +28,13 @@ const ScrollList = () => {
 
     return (
         <ParticipantsMain onScroll={scrollHandler}>
+            {userIn &&
+                <Participant
+                    username={userData.username}
+                    email={userData.email}
+                    address={userData.address}
+                />
+            }
             {
                 uppdatedData?.map((item, index) => (
                     <Participant

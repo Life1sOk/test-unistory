@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { useEthers } from '@usedapp/core';
 
 import { useAppDispatch } from '../../app-redux/hooks';
-import { removeUser } from '../../app-redux/slices/participant.slice';
+import { removeUser } from '../../app-redux/slices/user.slice';
 
 import { ParticipantStyle, ParticipantsWrapper, ParticipantsMainStyle, NameP, EmailP, WalletP, Сross } from './participant.style';
 
@@ -33,7 +33,6 @@ const Participant = memo(({ id, username, email, address }: IParticipant) => {
         <>
             {
                 current ?
-
                     <ParticipantsWrapper>
                         <ParticipantsMainStyle>
                             <NameP>{username}</NameP>
